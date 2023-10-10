@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Cont, Inp, FormStyle, BtnStyle } from './form.styled';
-
+import { TiUser, TiSortNumericallyOutline } from 'react-icons/ti';
 const INITIAL_STATE = { name: '', number: '' };
 
 class Form extends Component {
@@ -34,7 +34,9 @@ class Form extends Component {
       <div>
         <Cont>
           <FormStyle onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>
+              Name <TiUser />
+            </label>
             <Inp
               type="text"
               name="name"
@@ -43,7 +45,9 @@ class Form extends Component {
               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
               required
             />
-            <label htmlFor="tel">Number</label>
+            <label htmlFor="tel">
+              Number <TiSortNumericallyOutline />
+            </label>
             <Inp
               type="tel"
               value={this.state.number}
