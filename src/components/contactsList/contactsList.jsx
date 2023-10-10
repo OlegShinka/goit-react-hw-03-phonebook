@@ -1,21 +1,21 @@
 import { Card } from 'components/contactCard/contactCard';
 import { nanoid } from 'nanoid';
-import { Cnt, List } from './contactsList.styled';
+// import { Cnt, List } from './contactsList.styled';
 export const ContactsList = ({ list, onDelete }) => {
   return (
     <div>
-      <List>
+      <ul>
         {list.map(item => (
-          <Cnt key={nanoid()}>
+          <li key={nanoid()}>
             <Card
               name={item.name}
               number={item.number}
               id={item.id}
               onDelete={onDelete}
             />
-          </Cnt>
+          </li>
         ))}
-      </List>
+      </ul>
     </div>
   );
 };
