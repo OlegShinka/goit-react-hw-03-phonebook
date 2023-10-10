@@ -1,12 +1,14 @@
+import { BtnStyle } from './contactCard.styled';
+import { HiTrash } from 'react-icons/hi';
 export const Card = ({ name, number, onDelete, id }) => {
   return (
     <div>
       <span>{name} :</span>
       <span>{number} </span>
 
-      <button type="button" onClick={() => onDelete(id)}>
-        Delete
-      </button>
+      <BtnStyle type="button" onClick={() => onDelete(id)}>
+        <HiTrash />
+      </BtnStyle>
     </div>
   );
 };

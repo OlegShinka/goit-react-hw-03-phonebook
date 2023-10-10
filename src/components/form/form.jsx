@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-// import { Btn, Cont, FormSt, Inp } from './form.styled';
+import { Cont, Inp, FormStyle, BtnStyle } from './form.styled';
 
 const INITIAL_STATE = { name: '', number: '' };
 
@@ -32,10 +32,10 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <section>
-          <form onSubmit={this.handleSubmit}>
+        <Cont>
+          <FormStyle onSubmit={this.handleSubmit}>
             <label>Name</label>
-            <input
+            <Inp
               type="text"
               name="name"
               value={this.state.name}
@@ -44,7 +44,7 @@ class Form extends Component {
               required
             />
             <label htmlFor="tel">Number</label>
-            <input
+            <Inp
               type="tel"
               value={this.state.number}
               name="number"
@@ -53,9 +53,9 @@ class Form extends Component {
               pattern="\\+?\\d{1,4}?[ .\\-\\s]?\\(?\\d{1,3}?\\)?[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,9}"
               required
             />
-            <button type="submit">Add contact</button>
-          </form>
-        </section>
+            <BtnStyle type="submit">Add contact</BtnStyle>
+          </FormStyle>
+        </Cont>
       </div>
     );
   }
