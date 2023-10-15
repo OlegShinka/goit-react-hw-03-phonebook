@@ -30,27 +30,20 @@ export class App extends Component {
     }
   }
 
-  contactByNameSearch = (nameContact, contacts) => {
+  checkContact = (nameContact, contacts) => {
     return contacts.find(item => {
       return item.name === nameContact;
     });
   };
 
   formSubmitHandler = newContact => {
-    const checkContact = this.state.contacts.find(contact => {
-      return contact.name === newContact.name;
-    });
-
-    if (checkContact) {
-      alert(`${this.state.contacts.name} is already in contacts.`);
+    if (this.checkContact(newContact.name, this.state.contacts)) {
+      alert(`${newContact.name} is already in contacts.`);
       return;
     }
-    if (!checkContact) {
-      this.setState(prev => ({
-        // розпили контакти масив
-        contacts: [...prev.contacts, newContact],
-      }));
-    }
+    this.setState(prev => ({
+      contacts: [...prev.contacts, newContact],
+    }));
   };
   onChangeFilter = value => {
     this.setState({ filter: value });
