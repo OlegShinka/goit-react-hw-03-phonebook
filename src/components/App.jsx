@@ -32,7 +32,7 @@ export class App extends Component {
 
   checkContact = (nameContact, contacts) => {
     return contacts.find(item => {
-      return item.name === nameContact;
+      return item.name.toLowerCase() === nameContact.toLowerCase();
     });
   };
 
